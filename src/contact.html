@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Contact</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Bluesky template project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+		<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="plugins/rangeslider.js-2.3.0/rangeslider.css">
+		<link rel="stylesheet" type="text/css" href="styles/contact.css">
+		<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+
+		<style>
+			#EditNameDiv {
+			  position: fixed;
+			  display: none;
+			  width: 100%;
+			  height: 100%;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  /*background-color: rgba(0,0,0,0.5);*/
+			  z-index: 2;
+			  cursor: pointer;
+			}
+
+			#EditEmailDiv {
+			  position: fixed;
+			  display: none;
+			  width: 100%;
+			  height: 100%;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  /*background-color: rgba(0,0,0,0.5);*/
+			  z-index: 2;
+			  cursor: pointer;
+			}
+
+			.hover_container {
+				position: relative;
+				width: 50%;
+			}
+
+			.image {
+				opacity: 1;
+				/*display: block;*/
+				width: 100%;
+				height: auto;
+				transition: .5s ease;
+				backface-visibility: hidden;
+			}
+
+			.middle {
+				transition: .5s ease;
+				opacity: 0;
+				position: absolute;
+				top: 80%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				text-align: center;
+			}
+
+			.hover_container:hover .image {
+				opacity: 0.3;
+			}
+
+			.hover_container:hover .middle {
+				opacity: 1;
+			}
+
+			.custom_button
+			{
+				width: 193px;
+				height: 100%;
+				height: 60px;
+				border-radius: 35px;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				font-size: 14px;
+				font-weight: 700;
+				color: #FFFFFF;
+				text-transform: uppercase;
+				background: linear-gradient(to right, #487fee, #32fa95);
+				outline: none;
+			}
+		</style>
+
+		<style>
+			.modal-window {
+			  position: fixed;
+			  /*background-color: rgba(255, 255, 255, 0.25);*/
+			  background-color: rgba(0,0,0,0.5);
+			  top: 0;
+			  right: 0;
+			  bottom: 0;
+			  left: 0;
+			  z-index: 999;
+			  opacity: 0;
+			  pointer-events: none;
+			  transition: all 0.3s;
+			}
+			.modal-window:target {
+			  opacity: 1;
+			  pointer-events: auto;
+			}
+			.modal-window > div {
+			  width: 400px;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  -webkit-transform: translate(-50%, -50%);
+			          transform: translate(-50%, -50%);
+			  padding: 2em;
+			  background: #ffffff;
+			}
+			.modal-window header {
+			  font-weight: bold;
+			}
+			.modal-window h1 {
+			  font-size: 150%;
+			  margin: 0 0 15px;
+			}
+
+			.modal-close {
+			  color: #aaa;
+			  line-height: 50px;
+			  font-size: 80%;
+			  position: absolute;
+			  right: 0;
+			  text-align: center;
+			  top: 0;
+			  width: 70px;
+			  text-decoration: none;
+			}
+			.modal-close:hover {
+			  color: black;
+			}
+
+			.SpecialContainer {
+			  display: grid;
+			  justify-content: center;
+			  align-items: center;
+			  height: 100vh;
+			}
+
+			.modal-window div:not(:last-of-type) {
+			  margin-bottom: 15px;
+			}
+
+			small {
+			  color: #aaa;
+			}
+
+			.btn {
+			  background-color: #fff;
+			  padding: 1em 1.5em;
+			  border-radius: 3px;
+			  text-decoration: none;
+			}
+			.btn i {
+			  padding-right: 0.3em;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="super_container">
+
+			<div id="EditNameDiv" onclick="offEditName()">
+				
+			</div>
+
+			<div id="EditEmailDiv" onclick="offEditEmail()">
+				
+			</div>
+
+
+			<!-- Menu -->
+
+			<div class="menu trans_500">
+				<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+					<div class="menu_close_container"><div class="menu_close"></div></div>
+					<div class="logo menu_logo">
+						<a href="#">
+							<div class="logo_container d-flex flex-row align-items-start justify-content-start">
+								<div class="logo_image"><div><img src="images/trust_lend_logo.png" alt=""></div></div>
+							</div>
+						</a>
+					</div>
+					<ul>
+						<li class="menu_item"><a href="index.html">Home</a></li>
+						<li class="menu_item"><a href="borrow.html">Borrow</a></li>
+						<li class="menu_item"><a href="lend.html">Lend</a></li>
+						<li class="menu_item"><a href="wallet.html">My Wallet</a></li>
+						<li class="menu_item"><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				<div class="menu_phone"><span>call us: </span>9604 2093</div>
+			</div>
+
+
+		
+			
+			<div id="open-modal-edit-name" class="modal-window">
+			  <div>
+			    <a href="#" title="Close" class="modal-close">Close</a>
+			    <h1>Edit Your Name</h1>
+			    <div>You can edit your user name, note that it will cause some gas.</div>
+			    <input id="new_user_name" type="text" name="new_user_name" style="margin-bottom: 15px;">
+			    <a href="#"><button class="custom_button" style="" onclick="App_current_page.EditName()">Change</button></a>
+			  </div>
+			</div>
+
+			<div id="open-modal-edit-email" class="modal-window">
+			  <div>
+			    <a href="#" title="Close" class="modal-close">Close</a>
+			    <h1>Edit Your Email</h1>
+			    <div>You can edit your contact email, note that it will cause some gas.</div>
+			    <input id="new_contact_email" type="text" name="new_user_name" style="margin-bottom: 15px;">
+			    <a href="#"><button class="custom_button" style="" onclick="App_current_page.EditEmail()">Change</button></a>
+			  </div>
+			</div>
+
+			<!-- <div id="open-modal-edit-income_proof" class="modal-window">
+			  <div>
+			    <a href="#" title="Close" class="modal-close">Close</a>
+			    <h1>Edit Your Income Proof</h1>
+			    <div>You can edit your income proof, note that it will cause some gas.</div>
+			    <input id="new_income_proof" type="text" name="new_user_name" style="margin-bottom: 15px;">
+			    <a href="#"><button class="custom_button" style="" onclick="App_current_page.EditEmail()">Change</button></a>
+			  </div>
+			</div> -->
+
+			<!-- the code for ipfs file upload testing -->
+			<div class="contact">
+				<div class="container">
+					<div class="row">
+						<!-- Contact Form -->
+						<div class="col-lg-12" style="text-align: center;margin-top: 0px;">
+							<div class="contact_form_container" style="">
+
+								<div class="profile_icon_div hover_container" style="width: 100%">
+									<img id="profile_icon_image" class="image" src="" alt="Profiel Picture" style="padding: 20px;width: 40%;border-radius: 50%;width: 400px;height: 400px;" >
+									<div class="middle">
+										<!-- <input id="user_file" type="file" class="custom_button" placeholder="" onchange="myFunction()"> -->
+										<button class="custom_button">Change Profile Pic</button>
+									</div>
+									<div class="middle">
+										<form class="" id="profile_icon" onsubmit="App_current_page.submitToIPFS(1)" style="opacity: 0;">
+											<div class="row">
+												<input id="user_file" type="file" class="custom_button" placeholder="" onchange="App_current_page.bufferSelectedFile(1)">
+											</div>
+										</form>
+										<!-- <input id="user_file" type="file" class="custom_button" placeholder="" onchange="myFunction()"> -->
+										<!-- <button class="custom_button">Change Profile Pic</button> -->
+									</div>
+								</div>
+
+								<div style="display: inline-grid;">
+									<!-- user name -->
+									<div class="profile_name_info_div" style="display: inline-flex;text-align: center;padding: 20px">
+										<p id="profile_name_info">User Name: </p>
+										<!-- <div style="position: relative;"> -->
+										  <!-- <img id="edit_user_name_icon" src="/images/edit_icon.svg" style="width: 30px;height: 30px;margin-left: 20px; cursor: pointer; " > -->
+										  <a href="#open-modal-edit-name">
+										  	<img id="edit_user_name_icon" src="/images/edit_icon.svg" style="width: 30px;height: 30px;margin-left: 20px; cursor: pointer; " >
+										  </a>
+										  <!-- <div> -->
+											
+										  <!-- </div> -->
+										  <!-- <button style="opacity: 0.1;position: absolute;top: 0%;left: 0%;height: 100%;width: 100%;cursor: pointer; " onclick='App_current_page.editName()'>Button</button> -->
+										<!-- </div> -->
+										
+									</div>
+
+									<!-- email -->
+									<div class="profile_email_info_div" style="display: inline-flex;text-align: center;padding: 20px">
+										<p id="profile_email_info">Email: </p>
+										<a href="#open-modal-edit-email">
+										  	<img src="/images/edit_icon.svg" style="width: 30px;height: 30px;margin-left: 20px; cursor: pointer; " >
+										  </a>
+										
+									</div>
+
+
+									<!-- Income Proof -->
+									<div class="profile_income_proof_div" style="display: inline-flex;text-align: center;padding: 20px">
+										<p id="profile_income_proof">Income Proof: <a id="profile_income_proof_link" href="">view my income proof</a></p>
+
+										<a href="#open-modal-edit-income_proof">
+										  	<img src="/images/edit_icon.svg" style="width: 30px;height: 30px;margin-left: 20px; cursor: pointer; position: absolute;" >
+										  	<form class="" id="income_proof_form" onsubmit="App_current_page.submitToIPFS(2)" style="opacity: 0;width: 30px;height: 30px;margin-left: 20px;position: absolute;">
+												<div class="row">
+													<input id="user_file_income" type="file" class="custom_button" placeholder="" onchange="App_current_page.bufferSelectedFile(2)" style="width: 30px;height: 30px;margin-left: 15px;">
+												</div>
+											</form>
+										</a>
+										
+									</div>
+								</div>
+
+								<!-- proposal -->
+								<!-- <div class="profile_proposals_div" style="width: 100%;padding-top: 50px">
+									<h3 style="text-align: left;">Fund Raising Proposals</h3>
+									<div style="display: inline-flex;">
+										<div class="profile_proposal_grid" style="padding: 20px;width: 30%;">
+											<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width: 100%">
+											<h4 style="padding-top: 20px">Proposal Name</h4>
+										</div>
+										<div class="profile_proposal_grid" style="padding: 20px;width: 30%;">
+											<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width: 100%">
+											<h4 style="padding-top: 20px">Proposal Name</h4>
+										</div>
+										<div class="profile_proposal_grid" style="padding: 20px;width: 30%;">
+											<img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width: 100%">
+											<h4 style="padding-top: 20px">Proposal Name</h4>
+										</div>	
+									</div>
+								</div> -->
+
+								<!-- income proof -->
+								<!-- <div class="profile_icon_div" style="width: 100%;padding-top: 50px">
+									<h3 style="text-align: center;">Income Proof</h3>
+									<div style="display: inline-flex;align-items: center;">
+										<div class="profile_proposal_grid" style="padding: 20px;margin-left: 10%;margin-right: 10%;">
+											<img src="" alt="Avatar" style="width: 100%">
+										</div>
+									</div>
+								</div> -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Footer -->
+			<footer class="footer" style="display: none;">
+				<div class="footer_main">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="footer_logo"><a href="#"><img src="images/logo_large.png" alt=""></a></div>
+							</div>
+							<div class="col-lg-9 d-flex flex-column align-items-start justify-content-end">
+								<div class="footer_title">Latest Properties</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3 footer_col">
+								<div class="footer_about">
+									<div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_1.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Sea view property</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_2.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Town House</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_3.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Modern House</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+
+		<script src="js/header.js"></script>
+
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="styles/bootstrap4/popper.js"></script>
+		<script src="styles/bootstrap4/bootstrap.min.js"></script>
+		<script src="plugins/greensock/TweenMax.min.js"></script>
+		<script src="plugins/greensock/TimelineMax.min.js"></script>
+		<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+		<script src="plugins/greensock/animation.gsap.min.js"></script>
+		<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+		<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+		<script src="plugins/easing/easing.js"></script>
+		<script src="plugins/parallax-js-master/parallax.min.js"></script>
+		<script src="js/about.js"></script>
+
+		<script src="js/web3.min.js"></script>
+		<script src="js/truffle-contract.js"></script>
+		<!-- <script src="js/app.js"></script> -->
+
+<!-- 
+		<script src="https://unpkg.com/ipfs-http-client/dist/index.js"></script>
+	    <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous"></script>
+ -->
+
+ 		<!-- loading the human-readable (not minified) version -->
+		<script src="https://unpkg.com/ipfs/dist/index.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/ipfs/dist/index.js"></script>
+		<script>
+			// const node = new window.Ipfs()
+
+			// node.on('ready', () => {
+			//   // Ready to use!
+			//   // See https://github.com/ipfs/js-ipfs#core-api
+			//   console.log('Node is ready to use!')
+
+			// })
+		</script>
+
+
+
+
+	    <script type="text/javascript">
+
+	    	// Webpage Logic Explained:
+			// 1. Initialize Web3 Provider to get access to the blockchain
+			// 2. Use the Web3 Instance to access account, access blockchain information
+			// 3. ipfs instance is what we use to upload files to the ipfs api
+
+			// Webpage Function Explained:
+			// 1. Get Current User Address - web3.eth.getCoinbase
+			// 3. Retrieve Lend list - 
+			// 4. Show lend information - 
+
+			const node = new window.Ipfs()
+
+		 	$('#header_tab_5').addClass("active");
+
+		 	var FLAG = 0;
+		 	var loans_dict = new Object();
+		 	var loans_info = {};
+		 	var rate_type_convert = ["daily","monthly","annually"];
+
+		 	var search_interest_rate = 0;
+		 	var search_interest_rate_type = 0;
+		 	var search_amount_min = 0;
+		 	var search_amount_max = 0;
+
+		 	App_current_page = {
+		 		web3Provider: null,
+		 		contracts: {},
+		 		account: '0x0',
+		 		ipfsHash: '',
+		 		buffer: null,
+
+		 		init: function() {
+		 			console.log("#1. Initiating the Contact page")
+		 			return App_current_page.initWeb3();
+		 		},
+
+		 		initWeb3: function() {
+		 			console.log("#2. Initiating Web3 Provider")
+
+		 			if (typeof web3 !== 'undefined') {
+						// If a web3 instance is already provided by Meta Mask.
+						App_current_page.web3Provider = web3.currentProvider;
+						web3 = new Web3(web3.currentProvider);
+
+						// Metamask requires us to ask for access to the user accounts
+						// only when user agrees the access, can we use those information
+						// Metamask will remember the user's option, so that the confirmation box will pop-up only once for each application
+						try {
+							// Request account access if needed
+							ethereum.enable();
+						} catch (error) {
+							// User denied account access...
+							console.log(error);
+			          	}
+					} else {
+						// Specify default instance if no web3 instance provided
+						App_current_page.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+						web3 = new Web3(App_current_page.web3Provider);
+					}
+					return App_current_page.initContract();
+				},
+
+				initContract: function() {
+					console.log("#3. Initiating the contract");
+					$.getJSON("UserProfile.json", function(profileManager) {
+					  // Instantiate a new truffle contract from the artifact
+					  App_current_page.contracts.ProfileManager = TruffleContract(profileManager);
+					  // Connect provider to interact with contract
+					  App_current_page.contracts.ProfileManager.setProvider(App_current_page.web3Provider);
+					  return App_current_page.render();
+					});
+				},
+
+				render: function() {
+					var managerInstance;
+
+				    // Load account data
+				    web3.eth.getCoinbase(function(err, account) {
+				    	if (err === null) {
+				    		App_current_page.account = account;
+				    		console.log("Contact Page account is :", account);
+				    		// $('#profile_name_info').html("User Name: "+account);
+				    		$('#header_user_address').html("User : "+account.substring(0,4)+` ... `+account.substring(account.length-5,account.length));
+				    	}
+				    });
+
+				    // profile pic
+				    App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.getProfilePic(App_current_page.account.toLowerCase(),{from: App_current_page.account});
+				    }).then(function(hashValue){
+				    	console.log(hashValue);
+				    	App_current_page.ipfsHash=hashValue;
+				    	$('#profile_icon_image').attr("src","https://gateway.ipfs.io/ipfs/"+hashValue);
+				    	if(!hashValue){
+				    		$('#profile_icon_image').attr("src","images/icon_default.png");
+				    	}
+				    }).catch(function(error){
+				    	console.warn(error);
+				    	$('#profile_icon_image').attr("src","images/icon_default.png");
+				    });
+
+
+				    // name
+				    App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.getUserName(App_current_page.account.toLowerCase(),{from: App_current_page.account});
+				    }).then(function(name){
+				    	console.log("have name: ", name);
+				    	$('#profile_name_info').html("User Name: "+name);
+				    	$('#header_user_address').html("User : "+name);
+				    	if(!name){
+				    		$('#profile_name_info').html("User Name: "+App_current_page.account);
+				    	}
+				    	// App_current_page.ipfsHash=hashValue;
+				    	// $('#profile_icon_image').attr("src","https://gateway.ipfs.io/ipfs/"+hashValue);
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+
+				    // email
+				    App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.getEmail(App_current_page.account.toLowerCase(),{from: App_current_page.account});
+				    }).then(function(email){
+				    	console.log("have email: ", email);
+				    	$('#profile_email_info').html("Email: "+email);
+				    	// App_current_page.ipfsHash=hashValue;
+				    	// $('#profile_icon_image').attr("src","https://gateway.ipfs.io/ipfs/"+hashValue);
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+
+
+				    // income
+				    App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.getIncomeProof(App_current_page.account.toLowerCase(),{from: App_current_page.account});
+				    }).then(function(income){
+				    	console.log("have income: ", income);
+				    	$('#profile_income_proof_link').attr("href", "https://gateway.ipfs.io/ipfs/"+income);
+				    	if(!income){
+				    		$('#profile_income_proof').html("Income Proof: none");
+				    	}
+				    	// App_current_page.ipfsHash=hashValue;
+				    	// $('#profile_icon_image').attr("src","https://gateway.ipfs.io/ipfs/"+hashValue);
+				    }).catch(function(error){
+				    	console.warn(error);
+				    	$('#profile_income_proof').html("Income Proof: none");
+				    });
+				},
+
+				bufferSelectedFile(type){
+					console.log("Capture uploaded file");
+					var x = document.getElementById("user_file");
+					if(type==1){
+						x = document.getElementById("user_file");
+					}else{
+						x = document.getElementById("user_file_income");	
+					}
+					// var x = document.getElementById("user_file");
+
+					const reader = new window.FileReader()
+					reader.readAsArrayBuffer(x.files[0])
+
+					reader.onloadend = () => {
+						console.log("On loaded")
+						App_current_page.buffer = Buffer(reader.result)
+						// sleep(100);
+						console.log('buffer', App_current_page.buffer)
+						App_current_page.submitToIPFS(type)
+					}
+				},
+
+				submitToIPFS: function(type){
+
+					// const ipfsAPITest = window.IpfsApi('localhost', 5001) // Connect to IPFS
+					// ipfsAPITest.files.add(App_current_page.buffer, (err, result) => { // Upload buffer to IPFS
+					  //         if(err) {
+					  //           console.error(err)
+					  //           return
+					  //         }
+					  //         let url = `https://ipfs.io/ipfs/${result[0].hash}`
+					  //         console.log(`Url --> ${url}`)
+					  //       })
+
+					  	node.add(App_current_page.buffer, (err, files) => {
+						    if (err) return console.error(err)
+
+						    // 'hash', known as CID, is a string uniquely addressing the data
+						    // and can be used to get it again. 'files' is an array because
+						    // 'add' supports multiple additions, but we only added one entry
+						    console.log(files[0].hash)
+						  })
+
+
+					    console.log("IPFS: adding file to the ipfs network")
+						    ipfs.add(App_current_page.buffer, (error, result) => {
+							  	if(error) {
+							  		console.log("error in adding to IPFS: ",error)
+							  		return
+							  	}
+
+							  	console.log("buffer",App_current_page.buffer)
+							  	console.log("result",result)
+
+
+							if(type==1){
+								App_current_page.contracts.ProfileManager.deployed().then(function(instance){
+							  		instance.updateProfilePic(App_current_page.account.toLowerCase(),result[0].hash, { from: App_current_page.account }).then((r) => {
+							  			App_current_page.ipfsHash = result[0].hash
+							  			console.log('ifpsHash', App_current_page.ipfsHash)
+								        App_current_page.render();
+								    })
+								}).then(function(result){
+									App_current_page.render();
+								}).catch(function(err){
+									console.error(err);
+								});
+							}else if(type==2){
+								App_current_page.contracts.ProfileManager.deployed().then(function(instance){
+							  		instance.updateIncomeProof(App_current_page.account.toLowerCase(),result[0].hash, { from: App_current_page.account }).then((r) => {
+							  			App_current_page.ipfsHash = result[0].hash
+							  			console.log('ifpsHash', App_current_page.ipfsHash)
+								        App_current_page.render();
+								    })
+								}).then(function(result){
+									App_current_page.render();
+								}).catch(function(err){
+									console.error(err);
+								});
+							}
+						  	
+				 	 	});
+				  	return App_current_page.render();
+				},
+
+				EditName: function(){
+					console.log("new name: ",$('#new_user_name').val());
+					new_name = $('#new_user_name').val();
+					App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.updateUserName(App_current_page.account.toLowerCase(),new_name,{from: App_current_page.account});
+				    }).then(function(status){
+				    	// console.log(hashValue);
+				    	App_current_page.render();
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+				},
+
+				EditEmail: function(){
+					console.log("new email: ",$('#new_contact_email').val());
+					new_email = $('#new_contact_email').val();
+					App_current_page.contracts.ProfileManager.deployed().then(function(instance) {
+				    	return instance.updateEmail(App_current_page.account.toLowerCase(),new_email,{from: App_current_page.account});
+				    }).then(function(status){
+				    	// console.log(hashValue);
+				    	App_current_page.render();
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+				}
+				
+			};
+
+
+			function EditName() {
+				document.getElementById("EditNameDiv").style.display = "block";
+			}
+
+			function offEditName() {
+				document.getElementById("EditNameDiv").style.display = "none";
+			}
+
+			function EditEmail() {
+				document.getElementById("EditEmailDiv").style.display = "block";
+			}
+
+			function offEditEmail() {
+				document.getElementById("EditEmailDiv").style.display = "none";
+			}
+
+			function myFunction(){
+				console.log("Capture uploaded file");
+				var x = document.getElementById("user_file");
+
+				console.log("get the binary form");
+				const reader = new window.FileReader()
+				reader.readAsArrayBuffer(x.files[0])
+
+				reader.onloadend = () => {
+					console.log("On loaded")
+					App_current_page.buffer = Buffer(reader.result)
+					console.log('buffer', App_current_page.buffer)
+				}
+				console.log("end getting the binary form");
+			}
+
+
+
+			$(function() {
+				$(window).on('load',function() {
+					App_current_page.init();
+				});
+			});
+		</script>
+	</body>
+</html>

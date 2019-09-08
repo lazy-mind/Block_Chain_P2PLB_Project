@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Lend Trust</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Bluesky template project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+		<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+		<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+		<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+		<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+		<style type="text/css">
+		
+		.custom_button
+		{
+			width: 193px;
+			height: 100%;
+			border-radius: 35px;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: 700;
+			color: #FFFFFF;
+			text-transform: uppercase;
+			background: linear-gradient(to right, #487fee, #32fa95);
+		}
+		</style>
+
+		<style>
+			.modal-window {
+			  position: fixed;
+			  /*background-color: rgba(255, 255, 255, 0.25);*/
+			  background-color: rgba(0,0,0,0.5);
+			  top: 0;
+			  right: 0;
+			  bottom: 0;
+			  left: 0;
+			  z-index: 999;
+			  opacity: 0;
+			  pointer-events: none;
+			  transition: all 0.3s;
+			}
+			.modal-window:target {
+			  opacity: 1;
+			  pointer-events: auto;
+			}
+			.modal-window > div {
+			  width: 400px;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  -webkit-transform: translate(-50%, -50%);
+			          transform: translate(-50%, -50%);
+			  padding: 2em;
+			  background: #ffffff;
+			}
+			.modal-window header {
+			  font-weight: bold;
+			}
+			.modal-window h1 {
+			  font-size: 150%;
+			  margin: 0 0 15px;
+			}
+
+			.modal-close {
+			  color: #aaa;
+			  line-height: 50px;
+			  font-size: 80%;
+			  position: absolute;
+			  right: 0;
+			  text-align: center;
+			  top: 0;
+			  width: 70px;
+			  text-decoration: none;
+			}
+			.modal-close:hover {
+			  color: black;
+			}
+
+			.SpecialContainer {
+			  display: grid;
+			  justify-content: center;
+			  align-items: center;
+			  height: 100vh;
+			}
+
+			.modal-window div:not(:last-of-type) {
+			  margin-bottom: 15px;
+			}
+
+			small {
+			  color: #aaa;
+			}
+
+			.btn {
+			  background-color: #fff;
+			  padding: 1em 1.5em;
+			  border-radius: 3px;
+			  text-decoration: none;
+			}
+			.btn i {
+			  padding-right: 0.3em;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="super_container">
+
+			<!-- Header -->
+			<!-- Header is injected by js/header.js -->
+
+			<!-- Menu -->
+			<div class="menu trans_500">
+				<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+					<div class="menu_close_container"><div class="menu_close"></div></div>
+					<div class="logo menu_logo">
+						<a href="#">
+							<div class="logo_container d-flex flex-row align-items-start justify-content-start">
+								<div class="logo_image"><div><img src="images/trust_lend_logo.png" alt=""></div></div>
+							</div>
+						</a>
+					</div>
+					<ul>
+						<li class="menu_item"><a href="index.html">Home</a></li>
+						<li class="menu_item"><a href="borrow.html">Borrow</a></li>
+						<li class="menu_item"><a href="lend.html">Lend</a></li>
+						<li class="menu_item"><a href="wallet.html">My Wallet</a></li>
+						<li class="menu_item"><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				<div class="menu_phone"><span>call us: </span>9604 2093</div>
+			</div>
+			
+			<!-- Home -->
+			<div class="home">
+
+				<!-- Home Slider -->
+				<div class="home_slider_container">
+					<div class="owl-carousel owl-theme home_slider">
+						
+						<!-- Slide -->
+						<div class="owl-item">
+							<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+							<div class="slide_container">
+								<div class="container">
+									<div class="row">
+										<div class="col">
+											<div class="slide_content">
+												<div class="home_subtitle"></div>
+												<div class="home_title">Hello! Admin!</div>
+												<div class="home_price">Press the button to perform automatic payback function</div>
+												<button class="custom_button" onclick="App_current_page.autoPayback()" style="height: 80px; margin-top: 20px">Auto Payback</button>
+												<!-- <div class="home_details">
+													<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
+														<li>
+															<div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+															<span> 650 Ftsq</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+															<span> 3 Bedrooms</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+															<span> 2 Bathrooms</span>
+														</li>
+													</ul>
+												</div>
+												<div class="home_price">$ 1. 245 999</div> -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slide -->
+						<div class="owl-item">
+							<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+							<div class="slide_container">
+								<div class="container">
+									<div class="row">
+										<div class="col">
+											<div class="slide_content">
+												<div class="home_subtitle">super offer</div>
+												<div class="home_title">Villa with sea view</div>
+												<div class="home_details">
+													<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
+														<li>
+															<div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+															<span> 650 Ftsq</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+															<span> 3 Bedrooms</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+															<span> 2 Bathrooms</span>
+														</li>
+													</ul>
+												</div>
+												<div class="home_price">$ 1. 245 999</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Slide -->
+						<div class="owl-item">
+							<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+							<div class="slide_container">
+								<div class="container">
+									<div class="row">
+										<div class="col">
+											<div class="slide_content">
+												<div class="home_subtitle">super offer</div>
+												<div class="home_title">Villa with sea view</div>
+												<div class="home_details">
+													<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
+														<li>
+															<div class="home_details_image"><img src="images/icon_1.png" alt=""></div>
+															<span> 650 Ftsq</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_2.png" alt=""></div>
+															<span> 3 Bedrooms</span>
+														</li>
+														<li>
+															<div class="home_details_image"><img src="images/icon_3.png" alt=""></div>
+															<span> 2 Bathrooms</span>
+														</li>
+													</ul>
+												</div>
+												<div class="home_price">$ 1. 245 999</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Home Search -->
+			<div class="home_search" style="display: none;">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="home_search_container">
+								<div class="home_search_content" style="display: flex;">
+									<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+											<!-- <div>
+												<select id="search_interest_rate" class="search_form_select">
+													<option disabled selected>Interest Rate</option>
+													<option>0% - 3%</option>
+													<option>3% - 5%</option>
+													<option>5% - 7%</option>
+													<option>7% - 10%</option>
+													<option>10% - 13%</option>
+													<option>13% - 17%</option>
+													<option>17% - 20%</option>
+												</select>
+											</div> -->
+											<div style="width: 22%;vertical-align: middle;display: grid;">
+												<input style = "border: none;outline: none;" id="search_interest_rate" class="search_form_input" type="number" placeholder="interest rate > 0%" name="Interest_Rate">
+											</div>
+											<div style="width: 22%;vertical-align: middle;display: none;">
+												<select id="search_interest_rate_type" class="search_form_select" style="background: white;">
+													<option disabled selected>Rate Type</option>
+													<option>daily</option>
+													<option>monthly</option>
+													<option>annually</option>
+												</select>
+											</div>
+											<div style="width: 22%;vertical-align: middle;display: grid;">
+												<input style = "border: none;outline: none;" id="search_amount_min" class="search_form_input" type="number" placeholder="min amount" name="Amount">
+											</div>
+											<div style="width: 22%;vertical-align: middle;display: grid;">
+												<input style = "border: none;outline: none;" id="search_amount_max" class="search_form_input" type="number" placeholder="max amount" name="Amount">
+											</div>
+											<!-- <div>
+												<select id="search_payback_time" class="search_form_select">
+													<option disabled selected>Payback Time</option>
+													<option>6 months</option>
+													<option>12 months</option>
+													<option>18 months</option>
+													<option>24 months</option>
+												</select>
+											</div>
+											<div>
+												<select id="search_currency_type" class="search_form_select">
+													<option disabled selected>Currency types</option>
+													<option>USD</option>
+													<option>HKD</option>
+													<option>RMB</option>
+													<option>EUR</option>
+												</select>
+											</div>
+											<div>
+												<select id="search_flexible_return" class="search_form_select">
+													<option disabled selected>Flexible return</option>
+													<option>Yes</option>
+													<option>No</option>
+												</select>
+											</div> -->
+											<!-- <div>
+												<select class="search_form_select">
+													<option disabled selected>Bathrooms</option>
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+												</select>
+											</div> -->
+										</div>
+										<button class="custom_button" onclick="App_current_page.searchBorrow()">search</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Recent -->
+
+				<div id="open-modal-edit-name" class="modal-window">
+				  <div>
+				    <a href="#" title="Close" class="modal-close">Close</a>
+				    <h1>Lend Money</h1>
+				    <div id="lend_money_prompt_msg"></div>
+				    <input id="lend_money_amount" type="number" name="lend_money_amount_input" style="margin-bottom: 15px;">
+				    <div style="width: 100%">
+				    	<a href="#"><button class="custom_button" style="width: 40%; margin-right: 10%" onclick="App_current_page.lendMoneyAuto()">Pay by <br>wallet</button></a>
+				    	<a href="#"><button class="custom_button" style="width: 40%;" onclick="App_current_page.lendMoneyAuto()">Pay by <br>Deposit</button></a>
+				    </div>
+				  </div>
+				</div>
+
+				<div class="recent">
+					<div class="container">
+						<div class="row" style="display: none;">
+							<div class="col">
+								<div class="section_title">Recent Loans</div>
+								<div class="section_subtitle">
+									Choose a loan that you want to lend money to
+									<br>
+									<p>To do list:</p><br>
+									<li>Borrow Function</li><br>
+									<li>Lend Function</li><br>
+									<li>Rewithdraw Function</li><br>
+									<li>Payback Function</li><br>
+									<li>Search Function</li><br>
+									<li>display lent</li><br>
+								</div>
+							</div>
+						</div>
+						<div class="row recent_row">
+							<div class="col" style="display: grid;">
+								<div class="recent_slider_container">
+									<div id="loans_need_lender" class="owl-carousel owl-theme recent_slider">
+
+										<!-- Slide -->
+									<!-- <div class="owl-item">
+										<div class="recent_item">
+											<div class="recent_item_inner">
+												<div class="recent_item_image">
+													<img src="images/property_1.jpg" alt="">
+													<div class="tag_featured property_tag"><a href="#">5 Star Credit</a></div>
+												</div>
+												<div class="recent_item_body text-center">
+													<div class="recent_item_location">User Name</div>
+													<div class="recent_item_title"><a href="property.html">Raising Money For Starup Project</a></div>
+													<div class="recent_item_price">$ 1. 234 981</div>
+												</div>
+												<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+													<div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>7% Rate</span></div>
+													<div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>12 months</span></div>
+													<div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>Link with USD</span></div>
+												</div>
+											</div>
+										</div>
+									</div> -->
+
+									<!-- Slide -->
+									<!-- <div class="owl-item">
+										<div class="recent_item">
+											<div class="recent_item_inner">
+												<div class="recent_item_image">
+													<img src="images/property_2.jpg" alt="">
+													<div class="tag_offer property_tag"><a href="#">4 Star Credit</a></div>
+												</div>
+												<div class="recent_item_body text-center">
+													<div class="recent_item_location">User Name</div>
+													<div class="recent_item_title"><a href="property.html">College Loan</a></div>
+													<div class="recent_item_price">$ 1. 234 981</div>
+												</div>
+												<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+													<div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>7% Rate</span></div>
+													<div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>12 months</span></div>
+													<div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>Link with USD</span></div>
+												</div>
+											</div>
+										</div>
+									</div> -->
+
+									<!-- Slide -->
+									<!-- <div class="owl-item">
+										<div class="recent_item">
+											<div class="recent_item_inner">
+												<div class="recent_item_image">
+													<img src="images/property_3.jpg" alt="">
+													<div class="tag_featured property_tag"><a href="#">5 Star Credit</a></div>
+												</div>
+												<div class="recent_item_body text-center">
+													<div class="recent_item_location">User Name</div>
+													<div class="recent_item_title"><a href="property.html">Buy a House</a></div>
+													<div class="recent_item_price">$ 1. 234 981</div>
+												</div>
+												<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+													<div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>7% Rate</span></div>
+													<div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>12 months</span></div>
+													<div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>Link with USD</span></div>
+												</div>
+											</div>
+										</div>
+									</div> -->
+
+								</div>
+
+								<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+									<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+									<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+								</div>
+							</div>
+							<div class="button recent_button" onclick="App_current_page.clearSearch()" style="cursor: pointer;display: none;"><a style="color: white;">Clear Search</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Cities -->
+			<div class="cities" style="display: none;">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="section_title">Suggested Portfolio</div>
+							<div class="section_subtitle">meet with your personal risk taste</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="cities_container d-flex flex-row flex-wrap align-items-start justify-content-between">
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_2.jpg" alt="https://unsplash.com/@lachlanjdempsey">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_3.jpg" alt="https://unsplash.com/@hellolightbulb">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_4.jpg" alt="https://unsplash.com/@justinbissonbeck">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_5.jpg" alt="https://unsplash.com/@claudiotrigueros">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_6.jpg" alt="https://unsplash.com/@andersjilden">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_7.jpg" alt="https://unsplash.com/@sawyerbengtson">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+
+					<!-- City -->
+					<div class="city">
+						<img src="images/city_8.jpg" alt="https://unsplash.com/@mathewwaters">
+						<div class="city_overlay">
+							<a href="#" class="d-flex flex-column align-items-center justify-content-center">
+								<div class="city_title">2% - 5%</div>
+								<div class="city_subtitle">Payback in 6 month</div>
+							</a>	
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Newsletter -->
+			<div class="newsletter" style="display: none;">
+				<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg" data-speed="0.8"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
+								<div class="newsletter_title_container">
+									<div class="newsletter_title">Want to start a partnership?</div>
+									<div class="newsletter_subtitle">enter you email and our staff will contact you</div>
+								</div>
+								<div class="newsletter_form_container">
+									<form action="#" class="newsletter_form">
+										<input type="email" class="newsletter_input" placeholder="Your e-mail address" required="required">
+										<button class="newsletter_button">Invite for partnership</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer class="footer" style="display: none;">
+				<div class="footer_main">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="footer_logo"><a href="#"><img src="images/logo_large.png" alt=""></a></div>
+							</div>
+							<div class="col-lg-9 d-flex flex-column align-items-start justify-content-end">
+								<div class="footer_title">Latest Properties</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3 footer_col">
+								<div class="footer_about">
+									<div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_1.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Sea view property</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_2.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Town House</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 footer_col">
+								<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
+									<div><div class="footer_latest_image"><img src="images/footer_latest_3.jpg" alt=""></div></div>
+									<div class="footer_latest_content">
+										<div class="footer_latest_location">Miami</div>
+										<div class="footer_latest_name"><a href="#">Modern House</a></div>
+										<div class="footer_latest_price">$ 1. 234 981</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer_bar">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="footer_bar_content d-flex flex-row align-items-center justify-content-start">
+									<div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+										Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+										<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+									</div>
+									<div class="footer_nav">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="#">About us</a></li>
+											<li><a href="properties.html">Properties</a></li>
+											<li><a href="news.html">News</a></li>
+											<li><a href="contact.html">Contact</a></li>
+										</ul>
+									</div>
+									<div class="footer_phone ml-auto"><span>call us: </span>652 345 3222 11</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+
+		<script src="js/header.js"></script>
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="styles/bootstrap4/popper.js"></script>
+		<script src="styles/bootstrap4/bootstrap.min.js"></script>
+		<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+		<script src="plugins/easing/easing.js"></script>
+		<script src="plugins/parallax-js-master/parallax.min.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/web3.min.js"></script>
+		<script src="js/truffle-contract.js"></script>
+		<!-- <script src="js/app.js"></script> -->
+
+		<script type="text/javascript">
+
+			// Webpage Logic Explained:
+			// 1. Initialize Web3 Provider to get access to the blockchain
+			// 2. Use the Web3 Instance to access account, access blockchain information
+
+			// Webpage Function Explained:
+			// 1. Get Current User Address - web3.eth.getCoinbase
+			// 2. Retrieve borrow list - getBorrowListLength()
+			// 4. Show loans awaiting for lender - showResultInSequence()
+
+			var FLAG = 0;
+			var loans_dict = new Object();
+			var loans_info = {};
+			var rate_type_convert = ["daily","monthly","annually"];
+			$('#header_tab_1').addClass("active");
+
+			var search_interest_rate = 0;
+			var search_interest_rate_type = 0;
+			var search_amount_min = 0;
+			var search_amount_max = 0;
+
+
+			var selected_index = 0;
+			var selected_value = 0;
+
+			App_current_page = {
+				web3Provider: null,
+				contracts: {},
+				account: '0x0',
+
+				init: function() {
+					console.log("#1. Initiating the webpage");
+					return App_current_page.initWeb3();
+				},
+
+				initWeb3: function() {
+					console.log("#2. Initiating the web3 provider");
+					if (typeof web3 !== 'undefined') {
+						App_current_page.web3Provider = web3.currentProvider;
+						web3 = new Web3(web3.currentProvider);
+
+						// Metamask requires us to ask for access to the user accounts
+						// only when user agrees the access, can we use those information
+						// Metamask will remember the user's option, so that the confirmation box will pop-up only once for each application
+						try {
+							// Request account access if needed
+							ethereum.enable();
+						} catch (error) {
+							// User denied account access...
+							console.log(error);
+						}
+					} else {
+				      // Specify default instance if no web3 instance provided
+				      console.log("Web3 is not provided by metamask, we invoke our own");
+				      App_current_page.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
+				      web3 = new Web3(App_current_page.web3Provider);
+				  }
+				    // console.log(web3)
+				    return App_current_page.initContract();
+				},
+
+				initContract: function() {
+					console.log("#3. Initiating the contract");
+					
+					$.getJSON("Manager.json", function(manager) {
+			    		// Instantiate a new truffle contract from the artifact
+			    		App_current_page.contracts.Manager = TruffleContract(manager);
+			    		// Connect provider to interact with contract
+			    		App_current_page.contracts.Manager.setProvider(App_current_page.web3Provider);
+			    		return App_current_page.render();
+			  		});
+				},
+
+				render: function() {
+					console.log("#4. Render the webpage");
+					// 1. Get user account information
+					// 2. Search for all borrow list and display
+					
+					var managerInstance;
+				    
+				    // Get User Information
+				    web3.eth.getCoinbase(function(err, account) {
+				    	if (err === null) {
+				    		App_current_page.account = account;
+				    		console.log("Index Page Account Is :", account);
+				    		if(account){
+				    			$('#header_user_address').html("User : "+account.substring(0,4)+` ... `+account.substring(account.length-5,account.length));
+				    		}
+				    		admin_account = "0xCE8A5A4777d88aA0461bce51D166A1b75b3E31a8"
+				    		if(account!=admin_account.toLowerCase()){
+				    			console.log("Hello! Admin User");
+				    			window.location.replace("/index.html");
+				    		}
+				    	}
+				    });
+
+				    // Deploy the contract to show the borrow list
+				    App_current_page.contracts.Manager.deployed().then(function(instance) {
+				    	managerInstance = instance;
+				    	return managerInstance.getBorrowListLength();
+				    }).then(function(totalNumber){
+				    	FLAG = 1;
+				    	if(Number(totalNumber)){
+				    		console.log("totoal number of loans that can lend to: ",Number(totalNumber));
+				    		showResultInSequence(0,Number(totalNumber),managerInstance);
+				    	}
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+				},
+
+				autoPayback: function(){
+					App_current_page.contracts.Manager.deployed().then(function(instance) {
+				    	managerInstance = instance;
+				    	return managerInstance.adminFunc();
+				    }).then(function(totalNumber){
+				    	if(totalNumber){
+				    		console.log("Admin Success!");
+				    	}else{
+				    		console.log("Fail !!");
+				    	}
+				    }).catch(function(error){
+				    	console.warn(error);
+				    });
+				},
+
+				searchBorrow: function(){
+
+					if($('#search_interest_rate').val()){
+						search_interest_rate = $('#search_interest_rate').val();
+						console.log("search_interest_rate ",search_interest_rate);
+					}
+					if($('#search_interest_rate_type').val()){
+						search_interest_rate_type = $('#search_interest_rate_type').val();
+						if($('#search_interest_rate_type').val() == "daily"){
+							search_interest_rate_type = 1;
+						}else if($('#search_interest_rate_type').val() == "monthly"){
+							search_interest_rate_type = 2;
+						}else if($('#search_interest_rate_type').val() == "monthly"){
+							search_interest_rate_type = 3;
+						}
+						console.log("search_interest_rate_type ",search_interest_rate_type);
+					}
+					if($('#search_amount_min').val()){
+						search_amount_min = $('#search_amount_min').val();
+						console.log("search_amount_min ",search_amount_min);
+					}
+					if($('#search_amount_max').val()){
+						search_amount_max = $('#search_amount_max').val();
+						console.log("search_amount_max ",search_amount_max);
+					}
+
+
+
+					insertGrid();
+				},
+
+				clearSearch: function(){
+					search_interest_rate = 0;
+					search_interest_rate_type = 0;
+					search_amount_min = 0;
+					search_amount_max = 0;
+					// loans_info = {};
+					insertGrid();
+				},
+
+				lendMoney: function(index,value){
+				  	// alert(index,value);
+				  	// alert(value);
+				  	index_to_lend = index;
+				  	console.log("The borrow object index is: ",index);
+				  	App_current_page.contracts.Manager.deployed().then(function(instance){
+				  		return instance.lendMoney(index,{from: App_current_page.account, value: value});
+				  	}).then(function(result){
+				  		App_current_page.render();
+				  	}).catch(function(err){
+				  		console.error(err);
+				  	});
+				},
+
+				lendMoneyAuto: function(){
+					index_to_lend = selected_index;
+					money_to_lend = $("#lend_money_amount").val();
+					console.log("I want to lend out: "+money_to_lend);
+					if(money_to_lend <= 0){
+						alert("Should lend more than 0");
+						return;
+					}
+					if(money_to_lend >= selected_value){
+						alert("Should not lend more than "+selected_value);
+						return;
+					}
+
+				  	console.log("The borrow object index is: ",index_to_lend);
+				  	App_current_page.contracts.Manager.deployed().then(function(instance){
+				  		return instance.lendMoney(index_to_lend,{from: App_current_page.account, value: money_to_lend*Math.pow(10,18)});
+				  	}).then(function(result){
+				  		App_current_page.render();
+				  	}).catch(function(err){
+				  		console.error(err);
+				  	});
+				},
+
+				lendMoneyIntention: function(index,value){
+
+					$("#lend_money_prompt_msg").html("You can lend up to "+value/Math.pow(10,18)+" ethers to this loan");
+					selected_index = index;
+					selected_value = value/Math.pow(10,18);
+				}
+			};
+
+			function showResultInSequence (index, end, instance){
+				if(index>end){
+					return;
+				}else{
+					// getBorrowInfoFromBorrowList function will return:
+					/*
+					returns(uint256 borrow_index, 
+							uint256 debt_index, 
+							uint256 lenderNumber, 
+							uint256 interest_rate, 
+							address borrower, 
+							uint256 amount_request, 
+							uint256 amount_to_pay, 
+							uint256 last_repay_time, 
+							uint256 next_repay_time, 
+							bool is_lend, 
+							bool is_pay_off)
+					*/
+
+					instance.getBorrowInfoFromBorrowList(index).then(function(record){
+						
+						console.log("Every Borrow Record: ");
+						console.log("borrow_index: ",Number(record[0]));
+						console.log("debt_index: ",Number(record[1]));
+						console.log("lenderNumber: ",Number(record[2]));
+						console.log("interest_rate: ",Number(record[3]));
+						console.log("borrower: ",record[4]);
+						console.log("amount_request: ",Number(record[5]));
+						console.log("amount_to_pay: ",Number(record[6]));
+						console.log("last_repay_time: ",Number(record[7]));
+						console.log("next_repay_time: ",Number(record[8]));
+						console.log("is_lend: ",Number(record[9]));
+						console.log("is_pay_off: ",Number(record[10]));
+
+						if(record[4] != App_current_page.account){
+							loans_dict[index]={};
+							loans_dict[index]["borrower"] = record[4];
+							loans_dict[index]["amountRequest"] = Number(record[5]);
+							loans_dict[index]["amountToPay"] = Number(record[6]);
+							loans_dict[index]["timeRecord"] = Number(record[7]);
+							loans_dict[index]["rateType"] = 1;
+							loans_dict[index]["interestRate"] = Number(record[3]);
+							loans_dict[index]["isLend"] = Number(record[9]);;
+							loans_dict[index]["isPayOff"] = Number(record[10]);;
+					  		for(var key in loans_dict){
+					  			// console.log("now dict:", loans_dict[key]);
+					  		}
+					  	}
+					  	console.log("current at : index",index," end:",end);
+					  	if(index==end-1){
+					  		if(FLAG == 1){
+					  			FLAG=0;
+					  			console.log("where");
+					  			insertGrid();
+					  		}
+					  	}
+					  	showResultInSequence(index+1,end,instance);
+					});
+				}
+			};
+
+			function insertGrid (){
+				$('#loans_need_lender').html("");
+				console.log("loans_dict:", loans_dict);
+				console.log("Creating a grid");
+				for(var key in loans_dict){
+				  	// console.log("now dict:", loans_dict[key]);
+				  	if(loans_dict[key]["isLend"]==0){
+				  		new_grid_html = `
+				  		<div id="`+"loan_need_lender_"+key+`" class="owl-item col-lg-4 col-md-6" color="`+key+`">
+				  		<div class="recent_item">
+				  		<div class="recent_item_inner">
+				  		<div class="recent_item_image">
+				  		<img src="images/trust_lend_logo_temp.png" alt="">
+				  		<div class="tag_featured property_tag"><a href="#">5 Star Credit</a></div>
+				  		</div>
+				  		<div class="recent_item_body text-center" style="padding-top: 10px;padding-bottom: 10px;">
+				  		<div class="recent_item_location"> Lend to: <br><br>`+(loans_dict[key]["borrower"]).substring(0,4)+` ... `+(loans_dict[key]["borrower"]).substring(loans_dict[key]["borrower"].length-5,loans_dict[key]["borrower"].length)+`</div>
+				  		<div class="recent_item_title"><a href="property.html">Amount: `+loans_dict[key]["amountRequest"]/Math.pow(10,18)+`</a></div>
+				  		<div class="realtor_link" style="margin-top: 10px;">
+				  		<button class="search_form_button ml-auto" onclick='App_current_page.lendMoney(`+key+`,`+loans_dict[key]["amountRequest"]+`);' style="width:50px;padding:3px;display:none;">Lend</button>
+				  		<button class="search_form_button ml-auto" onclick='App_current_page.lendMoneyIntention(`+key+`,`+loans_dict[key]["amountRequest"]+`);' href="#open-modal-edit-name" style="width:50px;padding:3px;"><a href="#open-modal-edit-name" style="color:white">Lend</a></button>
+				  		
+				  		</div>
+				  		</div>
+				  		<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
+				  		<div style="display:none;"><div class="recent_icon"><img src="images/icon_2.png" alt="" style="display:none;"></div><span>Type: `+rate_type_convert[loans_dict[key]["rateType"]-1]+`</span></div>
+				  		<div style="width: 80%;    text-align: center;"><div class="recent_icon"><img src="images/icon_3.png" alt="" style="display:none;"></div><span>Rate: `+loans_dict[key]["interestRate"]+`%</span></div>
+				  		</div>
+				  		</div>
+				  		</div>
+				  		</div>
+				  		`;
+				  		if(loans_dict[key]["interestRate"]>search_interest_rate && (loans_dict[key]["rateType"] == search_interest_rate_type || search_interest_rate_type == 0) && (loans_dict[key]["amountRequest"]>search_amount_min) && (loans_dict[key]["amountRequest"]<search_amount_max || search_amount_max == 0)){
+				  			$('#loans_need_lender').append(new_grid_html);
+				  		}
+				  	}
+				}
+			};
+
+			$(function() {
+				$(window).on('load',function() {
+					App_current_page.init();
+				});
+			});
+		</script>
+	</body>
+</html>
